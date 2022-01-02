@@ -6,11 +6,23 @@ Namespace AdventOfCode2021
         Public cDebug As Boolean = True
 
         Sub Main(args As String())
+            Dim tmp As String
+            Dim day, part As Integer
             Do
                 Console.Write("Day?       : ")
-                Dim day = Integer.Parse(Console.ReadLine())
+                tmp = Console.ReadLine
+                While Not Integer.TryParse(tmp, day)
+                    Console.Write("Day?       : ")
+                    tmp = Console.ReadLine
+                End While
+
                 Console.Write("Part?      : ")
-                Dim part = Integer.Parse(Console.ReadLine())
+                tmp = Console.ReadLine
+                While Not Integer.TryParse(tmp, part)
+                    Console.Write("Part?      : ")
+                    tmp = Console.ReadLine
+                End While
+
                 Console.Write("Debug? Y/n : ")
                 cDebug = UserSaysYes()
 
@@ -40,6 +52,7 @@ Namespace AdventOfCode2021
                 Case 2
                     Return New Day2
                 Case 3
+                    Return New Day3
                 Case 4
                 Case 5
                 Case 6

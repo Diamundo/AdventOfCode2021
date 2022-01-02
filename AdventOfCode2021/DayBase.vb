@@ -21,17 +21,21 @@
 End Namespace
 
 'Namespace AdventOfCode2021
-'    Public Class Day2
+'    Public Class Day
 '        Inherits DayBase
 
-'        Public Overrides ReadOnly Property DayNumber As Integer = 2
+'        Public Overrides ReadOnly Property DayNumber As Integer = 
 
 '        Public Overrides Function PartOne() As Integer
+'            For Each line As String In IO.File.ReadAllLines(cInputFile)
+'            Next
 
 '            Return -1
 '        End Function
 
 '        Public Overrides Function PartTWo() As Integer
+'            For Each line As String In IO.File.ReadAllLines(cInputFile)
+'            Next
 
 '            Return -1
 '        End Function
