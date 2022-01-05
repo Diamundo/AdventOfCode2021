@@ -1,4 +1,7 @@
-﻿Namespace AdventOfCode2021
+﻿Imports System
+Imports System.Collections.Generic
+
+Namespace AdventOfCode2021
 
     Public MustInherit Class DayBase
 
@@ -7,6 +10,19 @@
         Public ReadOnly Property cInputFile As String
             Get
                 Return cInputFolder & "day" & DayNumber & If(cDebug, "-example", "") & ".txt"
+            End Get
+        End Property
+
+        Private items As List(Of String)
+        Public ReadOnly Property GetInput As List(Of String)
+            Get
+                If items Is Nothing Then
+                    items = New List(Of String)
+                    For Each item As String In IO.File.ReadAllLines(cInputFile)
+                        items.add(item)
+                    Next
+                End If
+                Return items
             End Get
         End Property
 
