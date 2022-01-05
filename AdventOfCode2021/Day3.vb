@@ -1,4 +1,7 @@
-﻿Namespace AdventOfCode2021
+﻿Imports System
+Imports System.Collections.Generic
+
+Namespace AdventOfCode2021
     Public Class Day3
         Inherits DayBase
 
@@ -20,16 +23,15 @@
             Next
             If cDebug Then Console.WriteLine("Day 3: bits = (" & String.Join(",", bits) & "), total = " & total)
 
-            Dim g, e As String
+            Dim g As String = ""
             For Each bit As Integer In bits
                 If bit > (total / 2) Then
                     g &= "1" 'most (== more than half) of the bits at this place are 1's
-                    e &= "0"
                 Else
                     g &= "0"
-                    e &= "1"
                 End If
             Next
+            Dim e = g.Replace("0", "x").Replace("1", "0").Replace("x", "1") 'e = !g, basically.
 
             Dim gamma, epsilon As Integer
             gamma = Convert.ToInt32(g, 2) 'Convert string from Base # to integer. 
